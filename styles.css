@@ -16,12 +16,11 @@ p {
   min-height: 600px;
   height: auto !important;
   height: 600px;
-  background-color: green;
+
 }
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: blue;
   padding-left: 25px;
   padding-right: 25px;
 }
