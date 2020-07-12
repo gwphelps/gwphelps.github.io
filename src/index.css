@@ -1,0 +1,186 @@
+body{
+  padding: 0;
+  margin: 0;
+  background-image: url("./collage2.png");
+  font-family: Helvetica;
+}
+h1, h2, h3, h4, p {
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+p{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+#education {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.sites {
+  width: 300px;
+  display: flex;
+  align-items: center;
+}
+.clickable{
+  cursor: none;
+}
+.clickable:hover {
+  cursor: pointer;
+}
+#projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 55px;
+}
+.project {
+  cursor: pointer;
+  margin: 5px;
+  width: 300px;
+  background-color: black;
+  display: block;
+  padding: 10px;
+  box-shadow: 5px 5px gray;
+
+}
+.focused-project{
+  width: 640px;
+  animation-name: expand-project(broke);
+  animation-duration: 1s;
+  overflow: hidden;
+}
+.unfocused-project {
+  animation-name: contract-project(broke);
+  animation-duration: 1s;
+  overflow: hidden;
+}
+@keyframes expand-project {
+  0% {
+    height: 400px;
+    width: 300px;
+  }
+  100% {
+    height: 600px;
+    width: 620px;
+  }
+}
+
+
+@keyframes contract-project {
+  0% {
+    height: 600px;
+    width: 620px;
+  }
+  100% {
+    height: 400px;
+    width: 300px;
+  }
+}
+
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: black;
+  color: white;
+  height: 50px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+}
+#name {
+  width: 320px;
+  display: flex;
+  justify-content: center;
+}
+#nav {
+  margin: 0;
+  padding: 0;
+  padding-right: 50px;
+  width: 320px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  background-color: black;
+  height: 50px;
+}
+#content {
+
+}
+#me-img {
+  width: 300px;
+  height: 300px;
+  border: 5px solid black;
+  margin: 5px;
+}
+.square-img-mid {
+  height: 300px;
+  width: 300px;
+}
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.text-area {
+  max-width: 680px;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  box-shadow: 5px 5px gray;
+}
+.project-text {
+  width: 300px;
+}
+.square-img-mid {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  margin: auto;
+}
+.project-header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@media only screen and (max-width:640px){
+  #name{
+    width: 100vw;
+  }
+  #nav{
+    width: 100vw;
+    padding-right: 0;
+  }
+  #projects{
+    margin-top: 100px;
+  }
+  .project {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #education {
+    margin-top: 100px;
+  }
+}
