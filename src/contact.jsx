@@ -4,7 +4,7 @@ import React, { Component } from "react";
 class Contact extends Component {
   render(){
     return(
-      <div id="contact">
+      <div className="content-area">
         <div className="text-area">
           <h2>Contact</h2>
           <div className="sites">

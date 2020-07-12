@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Home extends Component {
   render(){
     return(
-      <div id="home">
+      <div className="content-area">
         <div className="text-area">
           <p>Hi, this is my website! I am a recent grad from Iowa State University with a B.S.
           in Computer Engineering. I am looking for a job in Software Engineering.

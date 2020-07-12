@@ -11,7 +11,7 @@ class Projects extends Component {
         {
           hidden:false,
           title:"Intelligent Code Editor",
-          image:"ice22.jpg",
+          image:"ice22.png",
           focused: false,
           unfocused: false,
           content:
@@ -28,7 +28,7 @@ class Projects extends Component {
         {
           hidden:false,
           title:"Social Media",
-          image:"social2.jpg",
+          image:"social2.png",
           focused: false,
           unfocused: false,
           content:
@@ -44,7 +44,7 @@ class Projects extends Component {
         {
           hidden:false,
           title:"My Portfolio",
-          image:"portfolio.jpg",
+          image:"portfolio.png",
           focused: false,
           unfocused: false,
           content:

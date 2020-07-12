@@ -4,6 +4,7 @@ import Home from "./home.jsx";
 import Projects from "./projects.jsx";
 import Education from "./education.jsx";
 import Contact from "./contact.jsx";
+import About from "./about.jsx";
 
 class HomeComponent extends Component {
   constructor(props){
@@ -21,7 +22,7 @@ class HomeComponent extends Component {
             <h1 className="clickable" onClick={() => this.setState({content:<Home/>})}>Garet Phelps</h1>
           </div>
           <ul id="nav">
-            <li className="nav-item clickable">About</li>
+            <li className="nav-item clickable" onClick={() => this.setState({content: <About/>})}>About</li>
             <li className="nav-item clickable" onClick={() => this.setState({content: <Education/>})}>Education</li>
             <li className="nav-item clickable" onClick={() => this.setState({content: <Projects/>})}>Projects</li>
             <li className="nav-item clickable" onClick={() => this.setState({content: <Contact/>})}>Contact</li>

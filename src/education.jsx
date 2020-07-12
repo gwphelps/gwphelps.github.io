@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Education extends Component {
   render(){
     return (
-      <div id="education">
+      <div className="content-area">
         <div className="text-area">
           <h3>Iowa State University</h3>
           <h3>b.s. Computer Engineering</h3>

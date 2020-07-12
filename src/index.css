@@ -13,24 +13,16 @@ p{
   margin-top: 5px;
   margin-bottom: 5px;
 }
-#home {
+
+
+.content-area {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  margin-top: 55px;
 }
-#education {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-#contact {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+
 .sites {
   width: 300px;
   display: flex;
