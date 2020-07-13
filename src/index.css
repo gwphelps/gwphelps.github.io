@@ -7,11 +7,19 @@ body{
 h1, h2, h3, h4, p {
   padding: 0;
   margin: 0;
-  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: black;
 }
 p{
   margin-top: 5px;
   margin-bottom: 5px;
+}
+a{
+  color: black;
+}
+h1 {
+  color: white;
 }
 
 
@@ -43,13 +51,22 @@ p{
 }
 .project {
   cursor: pointer;
-  margin: 5px;
+  margin: 10px;
   width: 300px;
-  background-color: black;
+  background-color: hsl(211, 100%, 97%);
   display: block;
-  padding: 10px;
   box-shadow: 5px 5px gray;
+  animation-name: fade-in;
+  animation-duration: .5s;
+}
 
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
 }
 .focused-project{
   width: 640px;
@@ -91,7 +108,7 @@ p{
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background-color: black;
+  background-color: #74abdd;
   color: white;
   height: 50px;
   width: 100vw;
@@ -112,7 +129,7 @@ p{
   justify-content: space-around;
   align-items: center;
   list-style-type: none;
-  background-color: black;
+  background-color: #74abdd;
   height: 50px;
 }
 #content {
@@ -138,9 +155,10 @@ p{
 .text-area {
   max-width: 680px;
   padding: 20px;
-  background-color: black;
-  color: white;
+  background-color: hsl(211, 100%, 97%);/*#f8f8ff;*/
   box-shadow: 5px 5px gray;
+  animation-name: fade-in;
+  animation-duration: .5s;
 }
 .project-text {
   width: 300px;

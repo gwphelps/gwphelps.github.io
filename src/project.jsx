@@ -44,12 +44,14 @@ class Project extends Component {
   render(){
     return(
       <div className={"project"+this.getClass()} style={{display: this.hideProject()}} onClick={this.handleClick}>
+        <img src={"./images/"+this.props.image} height="300px" width="300px" className="square-img-mid"/>
         <div className="project-header">
           <h2>{this.props.title}</h2>
         </div>
-        <img src={"./images/"+this.props.image} height="300px" width="300px" className="square-img-mid"/>
-        <div style={{display: this.getDisplay()}}>{this.props.content}</div>
-        <p className="project-text">{this.getClickMessage()}</p>
+        <div style={{marginLeft: "15px", marginRight: "15px"}}>
+          <div style={{display: this.getDisplay(), marginLeft: "15px", marginRight: "15px"}}>{this.props.content}</div>
+          <p className="project-text">{this.getClickMessage()}</p>
+        </div>
       </div>
     );
   }
