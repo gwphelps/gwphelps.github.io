@@ -27,7 +27,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: calc(100vh - 50px);
   margin-top: 55px;
 }
 
@@ -55,7 +55,7 @@ h1 {
   width: 300px;
   background-color: hsl(211, 100%, 97%);
   display: block;
-  box-shadow: 5px 5px gray;
+  box-shadow: 5px 5px 25px black;
   animation-name: fade-in;
   animation-duration: .5s;
 }
@@ -145,13 +145,7 @@ h1 {
   height: 300px;
   width: 300px;
 }
-.content-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-}
+
 .text-area {
   max-width: 680px;
   padding: 20px;
@@ -184,13 +178,13 @@ h1 {
     padding-right: 0;
   }
   #projects{
-    margin-top: 100px;
+
   }
   .project {
     margin-left: 0;
     margin-right: 0;
   }
   #education {
-    margin-top: 100px;
+
   }
 }
