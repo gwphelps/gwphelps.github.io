@@ -20,6 +20,7 @@ class Projects extends Component {
             <p><b>Members:</b> 6</p>
             <p><b>Skills:</b> Java, Python, Natural Language Processing, aws</p>
             <p><b>Awards, etc:</b> 1st Place Project Award</p>
+            <a href="http://sdmay20-46.sd.ece.iastate.edu/">Link to Senior Design website</a>
             <p>
               <b>Description:</b> This project was my senior capstone project for Computer Engineering. It is a plugin for the IntelliJ IDE that translates natural English text into Java method invocations. The plugin uses OpenNMT-py to achieve this, run on an AWS EC2 server. My role for this project was the frontend (java), natural language processing (python), and refinement of the dataset. I also managed the reports for the project.
             </p>
