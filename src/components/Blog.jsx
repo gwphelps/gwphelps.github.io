@@ -1,4 +1,4 @@
-import Markdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown'
 import blogPostRespository from "./../blogPostRepository.js";
 import { useState, useEffect, useRef } from 'react'
 import { Box, Card, CardContent, Typography } from '@mui/material';
@@ -22,9 +22,9 @@ function Blog() {
                         return (
                             <Card variant="outlined" sx={{ m: 2, boxShadow: 1 }}>
                                 <CardContent>
-                                    <Typography>
-                                        <Markdown>{post}</Markdown>
-                                    </Typography>
+                                    <ReactMarkdown>
+                                        {post}
+                                    </ReactMarkdown>
                                 </CardContent>
                             </Card>
                             )
