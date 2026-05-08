@@ -5,6 +5,7 @@ import Randomizer from './Randomizer';
 import api from '../api';
 import ButtonAppBar from './ButtonAppBar';
 import LoadingPopup from './LoadingPopup';
+import animeRepository from '../animeRepository';
 
 function Game() {
     const [showMode, setShowMode] = useState(true);
@@ -46,32 +47,45 @@ function Game() {
         setInputValue("");
     }, [data]);
 
+    function setAndValidateToAnime(fromAnime){
+        return getRandomAnime().then((toAnime) => {
+            if(hasMutualActors(fromAnime, toAnime)){
+                console.log("mutual actors: " + fromAnime.id + " & " + toAnime.id)
+                return setAndValidateToAnime(fromAnime);
+            }
+            setToAnime(toAnime);
+            return toAnime;
+        })
+    }
 
+    function hasMutualActors(fromAnime, toAnime){
+        const set2 = new Set(fromAnime.actors.map(data => data.id));
+        const hasCommon = toAnime.actors.map(data => data.id).some(item => set2.has(item));
+        return hasCommon;
+    }
 
     function setToAndFrom(){
         setIsLoading(true);
-        getRandomAnime().then((data) => {
+        return getRandomAnime().then((data) => {
             setData(data.actors);
             setFromAnime(data);
-        }).then(() => getRandomAnime()).then((data) => {
-            setToAnime(data);
-        }).then(() => setIsLoading(false));
+            return data;
+        })
+        .then((fromAnime) => setAndValidateToAnime(fromAnime))
+        .then(() => setIsLoading(false));
     }
 
     function getRandomAnime(){
         const num = Math.floor(Math.random() * 61000);
-        return api.getAnimeById(num)
-            .then((data) => {
-                return api.getActorsByAnimeId(data.id).then(actors => {
-                    if(actors.length == 0){
-                        console.log("not valid: " + data.id);
-                        return getRandomAnime();
-                    }
-                    data.actors = actors;
-                    return data;
-                });
+        return animeRepository.getRandomAnime().then(myAnime => api.getActorsByAnimeId(myAnime.id).then(actors => {
+                if(actors.length == 0){
+                    console.log("not valid: " + myAnime.id);
+                    return getRandomAnime();
+                }
+                myAnime.actors = actors;
+                return myAnime;
             })
-            .catch((res) => getRandomAnime());
+            .catch((res) => getRandomAnime()));
     }
 
     function getNewData(id){
@@ -122,7 +136,6 @@ function Game() {
 
     return (
         <>
-            <ButtonAppBar />
             <Box sx={{display: isLoading ? "none" : "flex", justifyContent: "center", }}>
                 <Box sx={{maxWidth: "md"}}>
                     <Randomizer reverseToAndFrom={reverseToAndFrom} setToAndFrom={setToAndFrom} fromAnime={fromAnime} toAnime={toAnime}/>
