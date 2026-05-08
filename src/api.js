@@ -6,7 +6,7 @@ function wait(delay){
 }
 
 function waitThenFetch(url){
-    return wait(delayConst).then(() => fetch(url));
+    return wait(delayConst).then(() => fetch(url).catch((res) => waitThenFetch(url)));
 }
 
 function getAnimeById(id){
