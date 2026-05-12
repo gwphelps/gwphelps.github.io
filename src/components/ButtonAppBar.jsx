@@ -28,7 +28,7 @@ export default function ButtonAppBar({ title }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ boxShadow: 0 }}>
         <Toolbar sx={{pl: 0, pr: 0}}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
             {title}
           </Typography>
           <IconButton

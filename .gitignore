@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# to exclude Obsidian workspace settings (including plugin and hotkey configurations)
+public/blog/.obsidian/*
