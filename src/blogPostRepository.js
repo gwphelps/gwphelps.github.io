@@ -1,6 +1,6 @@
 const maxPostsDaily = 10;
 
-async function getBlogPosts(){
+async function getBlogPosts_old(){
     let posts = []
     var now = new Date();
     var daysOfYear = [];
@@ -21,6 +21,16 @@ async function getBlogPosts(){
     }
 
     return posts;
+}
+
+async function getBlogPosts(){
+    let workspaceData = await fetch("./blog/index.md")
+        .then(res => res.text())
+        .then(text => text.split("\n"));
+    let posts = await Promise.all(workspaceData
+        .map(fileName => fetch("./blog/Entries/"+ fileName + ".md")
+            .then(res => res.text())));
+    return posts.sort().reverse();
 }
 
 export default { getBlogPosts };
