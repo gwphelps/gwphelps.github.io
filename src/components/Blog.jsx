@@ -10,10 +10,6 @@ function Blog() {
 
     useEffect(() => {
         blogPostRespository.getBlogPosts()
-            .then(data => {
-                console.log(data);
-                return data;
-            })
             .then(data => setPosts(data));
     }, [])
 
