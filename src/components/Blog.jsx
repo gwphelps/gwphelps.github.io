@@ -5,8 +5,10 @@ import { Box, Card, CardContent, Typography } from '@mui/material';
 import { MuiMarkdown, defaultOverrides } from 'mui-markdown';
 import { Link as RouterLink } from 'react-router-dom';
 import { Link } from '@mui/material';
+import { useParams } from "react-router";
 
 function Blog() {
+    let { fileName } = useParams();
 
     const [posts, setPosts] = useState([])
 
@@ -23,7 +25,7 @@ function Blog() {
                     <Box sx={{display: "flex", justifyContent: "center"}}>
                         <Typography variant="h1">chet's Blog</Typography>
                     </Box>
-                    {posts.map(post => {
+                    {posts.filter(post => fileName != null ? post.id == fileName : true).map(post => {
                         return (
                             <Card variant="outlined" sx={{ m: 2, boxShadow: 1 }}>
                                 <CardContent>
@@ -34,7 +36,7 @@ function Blog() {
                                                 component: ({...props}) => <Typography sx={{marginBottom: "1rem"}} variant="body1" {...props} />,
                                             },
                                             h2: {
-                                                component: ({...props}) => <Link component={RouterLink} to={`/${post.id}`} sx={{marginBottom: "1rem"}} variant="h2" {...props} />,
+                                                component: ({...props}) => <Link component={RouterLink} to={`/blog/${post.id}`} sx={{marginBottom: "1rem"}} variant="h2" {...props} />,
                                             },
                                             h3: {
                                                 component: ({...props}) => <Typography sx={{marginBottom: "1rem"}} variant="h3" {...props} />,
