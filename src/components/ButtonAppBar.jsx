@@ -11,7 +11,7 @@ import * as React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Link as MatLink } from '@mui/material';
 
-export default function ButtonAppBar({ title }) {
+export default function ButtonAppBar({ title, pages }) {
   const id = React.useId();
   const buttonId = `${id}-button`;
   const menuId = `${id}-menu`;
@@ -51,9 +51,13 @@ export default function ButtonAppBar({ title }) {
               },
             }}
           >
-            <MatLink component={RouterLink} underline="none" color="inherit" to="/"><MenuItem onClick={handleClose}>Home</MenuItem></MatLink>
-            <MatLink component={RouterLink} underline="none" color="inherit" to="/animetoanime"><MenuItem onClick={handleClose}>AnimeToAnime</MenuItem></MatLink>
-            <MatLink component={RouterLink} underline="none" color="inherit" to="/blog"><MenuItem onClick={handleClose}>Blog</MenuItem></MatLink>
+            {pages.map(page => {
+              return (
+                <MatLink component={RouterLink} underline="none" color="inherit" to={page.path}>
+                  <MenuItem onClick={handleClose}>{page.name}</MenuItem>
+                </MatLink>
+              );
+            })}
           </Menu>
         </Toolbar>
       </AppBar>

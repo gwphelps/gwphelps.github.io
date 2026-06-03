@@ -5,8 +5,14 @@ import ButtonAppBar from "./components/ButtonAppBar";
 import './App.css'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Home from './components/Home';
 
 function App() {
+  const pages = [
+    {name: "Home", path: "/"},
+    {name: "AnimeToAnime", path: "/animetoanime"},
+    {name: "Blog", path: "/blog"}
+  ]; 
   const theme = createTheme({
     typography: {
       // Scale down all headers by setting a smaller base or relative size
@@ -25,24 +31,13 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
       <BrowserRouter>
+        <ButtonAppBar title="chet1620" pages={pages}/>
         {/* Routes */}
         <Routes>
-          <Route path="/" element={
-            <>
-              <ButtonAppBar title="AnimeToAnime"/>
-              <Game />
-            </>
-            } />
-          <Route path="/animetoanime" element={
-            <>
-              <ButtonAppBar title="AnimeToAnime"/>
-              <Game />
-            </>} />
-          <Route path="/blog" element={
-            <>
-              <ButtonAppBar title="chet's Blog"/>
-              <Blog />
-            </>} />
+          <Route path="/" element={<Home pages={pages}/>} />
+          <Route path="/animetoanime" element={<Game/>} />
+          <Route path="/blog" element={<Blog/>} />
+          <Route path="/blog/:fileName" element={<Blog />} />
         </Routes>
       </BrowserRouter>
       </ThemeProvider>

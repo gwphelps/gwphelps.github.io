@@ -30,7 +30,14 @@ async function getBlogPosts(){
     workspaceData = workspaceData.sort().reverse();
     let posts = await Promise.all(workspaceData
         .map(fileName => fetch("./blog/Entries/"+ fileName + ".md")
-            .then(res => res.text())));
+            .then(res => res.text())
+            .then(text => {
+                let obj = {
+                    id: fileName, 
+                    content: text
+                }
+                return obj;
+            })));
     return posts;
 }
 
